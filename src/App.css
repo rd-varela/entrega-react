@@ -32,3 +32,13 @@
   padding: 0px 8px;
   border-radius: 50%;
 }
+
+#catButton{
+  display: flex;
+  width: 100px;
+  text-align: center;
+  justify-content: center;
+  padding: 2px;
+  background-color: white;
+  color: red;
+}
