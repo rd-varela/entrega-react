@@ -36,9 +36,33 @@
 #catButton{
   display: flex;
   width: 100px;
-  text-align: center;
+  position: relative;
   justify-content: center;
+  left: 38%;
   padding: 2px;
+  background-color: black;
+  color: white;
+}
+
+#itemListContainer{
+  display: grid;
+  margin-top: 50px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 300px;
+}
+
+#itemCard{
+  display: flex;
   background-color: white;
-  color: red;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+#itemCard p{
+  color: black;
+}
+
+#itemCard h3{
+  color: black;
 }
