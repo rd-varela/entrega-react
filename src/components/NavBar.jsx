@@ -6,18 +6,20 @@ function NavBar () {
         <>
             <div id="navBar">
                 <h1>
-                    <Link to={'/'}>Tienda</Link>
+                    <Link to={'/'}>CosmoStore</Link>
                 </h1>
                 <nav>
                     <ul>
                         <li>
-                            <Link to={'category/Categoria1'}>Categoria 1</Link>
-                            <Link to={'category/Categoria2'}>Categoria 2</Link>
-                            <Link to={'category/Categoria3'}>Categoria 3</Link>
+                            <Link to={'category/Marte'}>Marte</Link>
+                            <Link to={'category/Neptuno'}>Neptuno</Link>
+                            <Link to={'category/Jupiter'}>Jupiter</Link>
                         </li>
                     </ul>
                 </nav>
-                <CartWidget/>
+                <Link to='/cart'>
+                    <CartWidget/>
+                </Link>
             </div>
         </>
     )

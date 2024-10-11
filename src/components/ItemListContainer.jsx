@@ -1,8 +1,7 @@
-import {useState} from 'react'
-import {products} from '../data/products'
-import {useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import {useParams} from 'react-router-dom'
-
+import {useCartContext} from '../context/cartContext'
+import {callProducts, getProductsCat} from '../firebase/db'
 import ItemList from './ItemList'
 
 function ItemListContainer ({item}) {
@@ -10,32 +9,20 @@ function ItemListContainer ({item}) {
     const [items, setItems] = useState([])
     const { id } = useParams()
 
-
-    const getProducts = () => {
-        return new Promise((res, rej) => {
-            setTimeout(() => {
-                res(products)
-            }, 2000);
-        })
-    }
+    const { cart } = useCartContext()
 
     useEffect(() =>{
-        getProducts()
-        .then(res => {
-            if (id) {
-                const filteredProducts = res.filter(product => product.category === id);
-                setItems(filteredProducts);
-            } else {
-                setItems(res);
-            }
-        })
+        id ? getProductsCat(id, setItems) : callProducts(setItems)
     }, [id])
 
     return(
+        <div id='itemListContainerDiv'>
             <div id="itemListContainer">
                 <ItemList items={items} />
             </div>
+        </div>
     )
 }
+
 
 export default ItemListContainer
